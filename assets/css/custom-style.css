@@ -1,0 +1,592 @@
+/* ===================================
+   MODERN AURORA THEME - FINAL VERSION
+   =================================== */
+
+/* Import Poppins font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* 1. MODERN DESIGN SYSTEM & VARIABLES */
+:root {
+    --primary-color: #BB86FC;
+    --primary-variant: #3700B3;
+    --secondary-color: #03DAC6;
+    --background-color: #121212;
+    --surface-color: #1E1E1E;
+    --on-primary: #000000;
+    --on-background: #E1E1E1;
+    --on-surface: #FFFFFF;
+    --border-radius-md: 12px;
+    --border-radius-lg: 16px;
+    --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.2);
+    --shadow-strong: 0 8px 30px rgba(0, 0, 0, 0.4);
+    --font-family-main: 'Poppins', sans-serif;
+}
+
+/* 2. GLOBAL & UTILITY STYLES */
+html { scroll-behavior: smooth; }
+body {
+    background-color: var(--background-color);
+    color: var(--on-background);
+    font-family: var(--font-family-main);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+h1, h2, h3, h4, h5, h6 { color: var(--on-surface); font-weight: 600; }
+h2 { font-size: 2.8rem; }
+p { font-size: 1.1rem; line-height: 1.7; font-weight: 300; }
+b, strong { font-weight: 600; color: var(--primary-color); }
+a { color: var(--secondary-color); text-decoration: none; transition: color 0.3s ease; }
+a:hover { color: var(--primary-color); }
+.section-padding40 { padding: 80px 0; }
+.section-tittle h2, .section-tittle2 h2 {
+    color: rgb(192, 165, 143);
+    position: relative;
+    padding-bottom: 15px;
+}
+.section-tittle h2::after, .section-tittle2 h2::after {
+    content: ''; position: absolute; bottom: 0; left: 0;
+    width: 70px; height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    border-radius: 2px;
+}
+.section-tittle.text-center h2::after { left: 50%; transform: translateX(-50%); }
+.fade-in-section {
+    opacity: 0; transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.fade-in-section.is-visible { opacity: 1; transform: translateY(0); }
+
+/* 3. HEADER & NAVIGATION */
+.header-area .menu-wrapper .main-menu ul li a {
+    color: peachpuff;
+}
+.header-area .main-header .header-sticky {
+  transition: all 0.4s ease;
+}
+.header-sticky.sticky-bar {
+  background: rgba(30, 30, 30, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+.main-menu nav ul li a {
+  color: #e0e0e0; /* Changed to a lighter grey for better visibility */
+  font-size: 1.1rem; /* Increased font size */
+  font-weight: 500;
+  position: relative;
+  padding: 5px 0;
+  margin: 0 15px; /* Added horizontal margin for spacing between links */
+  transition: color 0.3s ease, transform 0.3s ease, font-size 0.3s ease; /* Added font-size to transition */
+}
+.main-menu nav ul li a:hover {
+  color: var(--primary-color);
+  transform: translateY(-2px);
+  font-size: 1.15rem; /* Slightly larger on hover for emphasis */
+}
+.main-menu nav ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px; /* Adjusted bottom for better spacing from text */
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  transition: width 0.3s ease-out;
+  border-radius: 1px;
+}
+.main-menu nav ul li a:hover::after {
+  width: 100%;
+}
+.header-area .menu-wrapper .main-menu ul li a:hover {
+    color: rgb(202, 122, 51);
+}
+
+/* Existing header-btn and logo styles remain unchanged */
+.header-btn {
+  background-color: var(--primary-color);
+  color: var(--on-primary) !important;
+  border-radius: 50px;
+  padding: 12px 28px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.header-btn:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(3, 218, 198, 0.3);
+}
+.logo img {
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+.logo img:hover {
+  opacity: 1;
+}
+/* 4. HERO SECTION ("AURORA" EFFECT) */
+    .slider-area .hero__caption p {
+        color: rgb(165, 134, 106);
+    }
+    #role-tag {
+        font-size: 3.5rem;
+    }
+    #skill-tag a b {
+        color: rgb(140, 170, 143);
+    }
+.slider-area { background-color: #000; position: relative; overflow: hidden; }
+.slider-area::before, .slider-area::after {
+    content: ''; position: absolute; width: 800px; height: 800px;
+    border-radius: 50%; filter: blur(150px); opacity: 0.4; z-index: 0;
+}
+.slider-area::before {
+    background: radial-gradient(circle, var(--primary-variant) 0%, rgba(255,255,255,0) 70%);
+    top: -20%; left: -20%; animation: moveGradient1 15s infinite alternate ease-in-out;
+}
+.slider-area::after {
+    background: radial-gradient(circle, var(--secondary-color) 0%, rgba(255,255,255,0) 70%);
+    bottom: -20%; right: -20%; animation: moveGradient2 15s infinite alternate ease-in-out;
+}
+@keyframes moveGradient1 { from { transform: translate(0, 0) scale(1); } to { transform: translate(100px, 100px) scale(1.2); } }
+@keyframes moveGradient2 { from { transform: translate(0, 0) scale(1.2); } to { transform: translate(-100px, -100px) scale(1); } }
+.hero__caption { position: relative; z-index: 1; }
+.hero__caption h1 {
+    font-size: 5rem;
+    font-weight: 700;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    color: var(--on-surface) !important;
+}
+.hero__caption p { font-size: 1.5rem; font-weight: 300; }
+.cd-words-wrapper b { color: var(--secondary-color); }
+
+
+/* ===================================
+   5. ABOUT ME SECTION (REVISED & FINAL)
+   =================================== */
+
+/* Force the entire section to have the correct dark background */
+#about {
+    background-color: var(--background-color) !important;
+}
+
+/* The text card container */
+#about .about-caption {
+    background-color: var(--surface-color); /* Use the slightly lighter dark surface color */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius-lg);
+    padding: 40px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Hover effect for the text card */
+#about .about-caption:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Title inside the card - Make it bright white */
+#about .about-caption .section-tittle h2 {
+    color: var(--on-surface) !important;
+}
+
+/* Paragraph text inside the card - Make it brighter and more readable */
+#about .about-caption p {
+    color: var(--on-surface);
+    opacity: 0.9;
+}
+
+/* Bold/highlighted text inside the card - Change to vibrant teal */
+#about .about-caption p b,
+#about .about-caption p strong {
+    color: var(--secondary-color) !important; /* Changed from purple to vibrant teal */
+    font-weight: 500;
+}
+
+/* The photo container */
+#about .about-img {
+    overflow: hidden;
+    border-radius: var(--border-radius-lg);
+}
+
+/* The photo itself */
+#about .about-img img {
+    transition: transform 0.4s ease-in-out, filter 0.4s ease-in-out;
+    filter: grayscale(100%);
+}
+
+/* Hover effect for the photo */
+#about .about-img:hover img {
+    transform: scale(1.05);
+    filter: grayscale(0%);
+}
+
+/* Responsive adjustments for the entire section */
+@media (max-width: 991px) {
+    #about .row { flex-direction: column-reverse; }
+    #about .about-img { margin-bottom: 30px; border-radius: var(--border-radius-md); }
+    #about .about-caption { margin-bottom: 0; padding: 30px; }
+}
+
+
+/* 6. REFINED EXPERIENCE TIMELINE */
+.timeline-wrapper { position: relative; padding-left: 50px; }
+.timeline-wrapper::before {
+    content: ''; position: absolute; left: 20px; top: 10px;
+    bottom: 10px; width: 2px;
+    background-color: rgba(187, 134, 252, 0.3);
+}
+.single-timeline-item { position: relative; margin-bottom: 40px; }
+.single-timeline-item:last-child { margin-bottom: 0; }
+.single-timeline-item::before {
+    content: ''; position: absolute; left: -41px; top: 8px;
+    width: 22px; height: 22px; border-radius: 50%;
+    background-color: var(--primary-color);
+    border: 4px solid var(--background-color);
+    transition: transform 0.3s ease;
+}
+.single-timeline-item:hover::before {
+    transform: scale(1.2);
+    background-color: var(--secondary-color);
+}
+.tittle-experience h3 { font-size: 2.4rem; }
+.tittle-experience p { font-size: 1.7rem;opacity: 0.7;font-weight: 400; }
+.experience-link a { font-size: 1.9rem }
+
+/* 7. UPGRADED MY EXPERTISE CARDS */
+.our-services { background-color: var(--background-color); }
+.single-services {
+    background-color: var(--surface-color) !important;
+    padding: 40px 30px;
+    border-radius: var(--border-radius-lg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.4s ease;
+    height: 100%; position: relative; overflow: hidden;
+    display: flex; flex-direction: column; text-align: center;
+}
+.single-services::before {
+    content: ""; position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%); width: 200%; height: 200%;
+    background: radial-gradient(circle, rgba(187, 134, 252, 0.2), transparent 50%);
+    opacity: 0; transition: opacity 0.5s ease; z-index: 0;
+}
+.single-services:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border-color: rgba(187, 134, 252, 0.5);
+}
+.single-services:hover::before { opacity: 1; }
+.services-icon {
+    font-size: 2.8rem !important; color: var(--primary-color) !important;
+    margin-bottom: 25px !important; z-index: 1;
+}
+.services-cap { z-index: 1;}
+.services-cap h5 {
+    font-size: 2rem !important; margin-bottom: 15px !important;
+    color: var(--on-surface) !important; line-height: 1.3;
+}
+.services-cap p { font-size: 1.5rem !important; color: var(--on-background) !important; }
+
+/* 8. PROJECT CARDS */
+#projects-title {
+    color: black;
+}
+.box.snake {
+    background-color: var(--surface-color); border-radius: var(--border-radius-lg);
+    overflow: hidden; box-shadow: var(--shadow-strong);
+    position: relative; transition: all 0.4s ease;
+}
+.box.snake:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.6); }
+.gallery-img {
+    height: 300px; background-size: cover; background-position: center center;
+    background-repeat: no-repeat; transition: transform 0.4s ease;
+}
+.box.snake:hover .gallery-img { transform: scale(1.05); }
+.proj-details { padding: 25px; }
+.proj-title { font-size: 2.3rem; margin-bottom: 25px; }
+.proj-tech-stack span {
+    background-color: rgba(187, 134, 252, 0.1); color: var(--primary-color);
+    padding: 5px 12px; border-radius: 20px;
+    margin-right: 10px;
+    font-size: 1.6rem; font-weight: 500;
+}
+.box .overlay { background: rgba(18, 18, 18, 0.9); opacity: 0; transition: opacity 0.4s ease; }
+.box:hover .overlay { opacity: 1; }
+.overlay-content { display: flex; justify-content: center; align-items: center; width: 100%; height: 100%; gap: 20px; }
+.btn-custom {
+    display: flex; justify-content: center; align-items: center;
+    width: 60px; height: 60px; border-radius: 50%; text-decoration: none;
+    font-size: 24px; transition: all 0.3s ease; border: 2px solid transparent;
+    transform: translateY(20px); opacity: 0;
+}
+.box:hover .btn-custom { transform: translateY(0); opacity: 1; }
+.box:hover .btn-visit { transition-delay: 0.1s; }
+.box:hover .btn-github { transition-delay: 0.2s; }
+.btn-visit { background-color: var(--primary-color); color: var(--on-primary); }
+.btn-visit:hover { transform: scale(1.1); box-shadow: 0 0 15px rgba(187, 134, 252, 0.7); }
+.btn-github { background-color: var(--surface-color); border: 2px solid var(--on-surface); color: var(--on-surface); }
+.btn-github:hover { transform: scale(1.1); background-color: rgb(9, 3, 42); color: var(--surface-color); box-shadow: 0 0 15px rgba(255, 255, 255, 0.7)}
+
+/* ===================================
+   9. FOOTER & CONTACT (Updated)
+   =================================== */
+
+.footer-wrappr { background-color: var(--background-color); }
+.wantToWork-area { padding-bottom: 40px; }
+
+/* New styles for the card */
+.wants-wrapper {
+    background-color: var(--surface-color);
+    border-radius: var(--border-radius-lg);
+    padding: 50px;
+}
+.wants-title {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    color: var(--on-surface);
+}
+.inbox-p {
+    color: var(--on-background);
+    font-size: 1.1rem;
+}
+.cv-btn {
+    text-align: right; /* Aligns button to the right on large screens */
+}
+.white-btn {
+    border: 1px solid var(--primary-color);
+    background: aliceblue;
+    border-radius: 50px;
+    padding: 12px 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+.white-btn:hover {
+    background: var(--primary-color);
+    color: var(--on-primary);
+}
+
+
+/* Keep your original form and social icon styles below this point */
+/* Contact Form Inputs */
+#contact .form-box input,
+#contact .form-box textarea {
+    background-color: var(--surface-color) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: var(--on-surface) !important;
+    transition: border-color 0.3s ease;
+}
+#contact .form-box input:focus,
+#contact .form-box textarea:focus {
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 0 10px rgba(187, 134, 252, 0.3);
+}
+#contact .form-box input::placeholder,
+#contact .form-box textarea::placeholder {
+    color: var(--on-background);
+    opacity: 0.5;
+}
+
+/* Submit Button */
+#contact .submit-btn2 {
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color)) !important;
+    background-size: 200% 100%;
+    color: var(--on-primary) !important;
+    border: none !important;
+    transition: background-position 0.4s ease !important;
+}
+#contact .submit-btn2:hover {
+    background-position: 100% 0 !important;
+    box-shadow: 0 5px 20px rgba(187, 134, 252, 0.4);
+}
+
+/* Social Icons */
+#contact .footer-social a {
+    border-color: var(--on-background) !important;
+    color: var(--on-background) !important;
+    transition: all 0.3s ease;
+}
+#contact .footer-social a:hover {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+    color: var(--on-primary) !important;
+    transform: translateY(-3px);
+}
+
+/* Back to Top Button */
+#back-top a {
+    background-color: var(--primary-color) !important;
+    box-shadow: 0 5px 15px rgba(187, 134, 252, 0.4) !important;
+}
+#back-top a:hover {
+    background-color: var(--secondary-color) !important;
+}
+
+/* Add this new media query to handle stacking on smaller screens */
+@media (max-width: 991px) {
+    .wantToWork-caption, .cv-btn {
+        text-align: center; /* Center content on smaller screens */
+    }
+    .cv-btn {
+        margin-top: 30px; /* Add space when stacked */
+    }
+}
+
+/* ===================================
+   10. COMPLETE MOBILE NAVIGATION & RESPONSIVE FIXES (FINAL)
+   =================================== */
+@media (max-width: 991px) {
+    /* --- RESPONSIVE FONT SIZE FIXES --- */
+    .slider-area .hero__caption h1 {
+        font-size: 63px;
+        margin-top: 100px;
+        margin-bottom: 26px;
+        margin-right: 10px;
+    }
+    #role-tag {
+        font-size: 2rem;
+        margin-right: -31px;
+        color: peachpuff;
+    }
+    #skill-tag {
+        margin-bottom: 10vh;
+    }
+    .slider-area .hero__caption p {
+        font-size: 18px;
+        line-height: 1.1;
+        margin-bottom: 10px;
+        padding-right: 43px;
+    }
+
+    /* Make h2 titles smaller on mobile */
+    h2 {
+        font-size: 2.2rem;
+    }
+
+    /* Adjust timeline font sizes for mobile */
+    .tittle-experience h3 {
+        font-size: 1.2rem !important;
+    }
+    .tittle-experience p {
+        font-size: 0.9rem !important;
+    }
+    .experience-link a {
+        font-size: 1rem !important;
+    }
+
+    /* Adjust expertise card font sizes for mobile */
+    .services-cap h5 {
+        font-size: 1.5rem !important;
+    }
+    .services-cap p {
+        font-size: 1rem !important;
+    }
+
+    /* Adjust project card font sizes for mobile */
+    .proj-details {
+        padding: 20px;
+    }
+    .proj-title {
+        font-size: 1.3rem !important;
+        margin-bottom: 15px;
+    }
+    .proj-tech-stack span {
+        font-size: 0.8rem !important;
+        padding: 4px 10px;
+        margin-right: 6px;
+    }
+
+    /* Adjust footer card font sizes for mobile */
+    .wantToWork-caption h2 {
+        font-size: 1.8rem !important;
+        margin-top: 0 !important;
+    }
+    .wantToWork-caption p {
+        font-size: 1rem !important;
+    }
+    #d-btn {
+        width: 80vw;
+    }
+    .white-btn {
+        font-size: 1rem !important;
+        padding: 12px 28px;
+        margin: auto;
+    }
+
+
+    /* --- COMPLETE MOBILE NAVIGATION REBUILD (Z-INDEX FIX) --- */
+
+    /* This is the container for BOTH the button and the menu panel */
+    .slicknav_menu {
+        position: relative !important;
+        background: none !important;
+        box-shadow: none !important;
+        border: none !important;
+        padding: 0 !important;
+    }
+
+    /* The hamburger button itself */
+    .slicknav_btn {
+        background: transparent !important; border: 1px solid var(--on-background) !important;
+        border-radius: 8px !important; padding: 0 !important; margin: 0 !important;
+        width: 44px !important; height: 40px !important;
+        position: relative !important; display: block !important;
+        float: right;
+        z-index: 1000 !important; /* THIS IS THE FIX: Bring button to the top layer */
+    }
+
+    .slicknav_menu .slicknav_icon { display: none !important; }
+    .slicknav_btn:before, .slicknav_btn:after {
+        content: '' !important; position: absolute !important; left: 50% !important;
+        transform: translateX(-50%) !important; width: 22px !important;
+        height: 2px !important; background: var(--on-background) !important;
+        border-radius: 2px; transition: all 0.3s ease-in-out;
+    }
+    .slicknav_btn:before { top: 13px !important; }
+    .slicknav_btn:after { bottom: 13px !important; }
+    .slicknav_open .slicknav_btn:before { transform: translate(-50%, 6px) rotate(45deg); }
+    .slicknav_open .slicknav_btn:after { transform: translate(-50%, -6px) rotate(-45deg); }
+    .mobile_menu .slicknav_menu .slicknav_btn {
+        top: -69px;
+    }
+
+    /* The menu panel (the dropdown) */
+    .slicknav_nav {
+        position: absolute !important;
+        top: -92px !important;
+        right: 0 !important;
+        width: 170px;
+        background: rgba(30, 30, 30, 0.85) !important;
+        backdrop-filter: blur(10px) !important; -webkit-backdrop-filter: blur(10px) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: var(--border-radius-md); padding: 10px;
+        box-shadow: var(--shadow-strong);
+        clear: both;
+        overflow: hidden;
+        z-index: 999 !important; /* THIS IS THE FIX: Keep panel on a lower layer */
+    }
+
+    /* Menu links styling */
+    .slicknav_nav a {
+        font-family: var(--font-family-main); font-size: 1.1rem !important;
+        font-weight: 500 !important; color: var(--on-background) !important;
+        text-align: left; padding: 15px 20px !important; margin: 0 !important;
+        border-radius: 8px; transition: all 0.3s ease;
+        background: transparent !important;
+    }
+    .slicknav_nav a:hover,
+    .slicknav_nav li.active > a {
+        background: rgba(187, 134, 252, 0.15) !important;
+        color: var(--primary-color) !important;
+        transform: translateX(5px);
+}
+    .slicknav_nav .slicknav_row, .slicknav_nav a { border-bottom: none !important; }
+}
+
+@media (max-width: 575px) {
+    .section-tittle.text-center h2::after {
+        left: 10%;
+        transform: translateX(-50%);
+    }
+}
