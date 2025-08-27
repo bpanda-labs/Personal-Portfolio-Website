@@ -332,6 +332,11 @@ a:hover { color: var(--primary-color); }
 /* ===================================
    9. FOOTER & CONTACT (Updated)
    =================================== */
+   /* Fix for unwanted auto-capitalization in form fields */
+#contact input,
+#contact textarea {
+    text-transform: none !important;
+}
 
 .footer-wrappr { background-color: var(--background-color); }
 .wantToWork-area { padding-bottom: 40px; }
