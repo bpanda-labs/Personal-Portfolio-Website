@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You</title>
+    <style>
+        /* Import Poppins font */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        /* Define color variables for consistency */
+        :root {
+            --background-color: #121212;
+            --surface-color: #1E1E1E;
+            --primary-color: #BB86FC;
+            --on-surface: #FFFFFF;
+            --on-background: #E1E1E1;
+            --border-radius-lg: 16px;
+        }
+
+        /* Basic styles and layout */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-color);
+            color: var(--on-background);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* The main content container with a subtle fade-in */
+        .container {
+            background-color: var(--surface-color);
+            padding: 40px 50px;
+            border-radius: var(--border-radius-lg);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+            max-width: 500px;
+            width: 100%;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Heading style */
+        h2 {
+            color: var(--on-surface);
+            font-size: 2rem;
+            font-weight: 600;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        /* Paragraph style */
+        p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        /* "Back to Portfolio" button style */
+        .back-button {
+            display: inline-block;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            color: #000000;
+            background-color: var(--primary-color);
+            padding: 12px 28px;
+            border-radius: 50px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #03DAC6; /* Secondary color from your site */
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Thank you for your message!</h2>
+        <p>I appreciate you reaching out. I’ll get back to you as soon as possible.</p>
+        <a href="index.html" class="back-button">Back to Portfolio</a>
+    </div>
+</body>
+</html>
